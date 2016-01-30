@@ -7,11 +7,10 @@ Created on Fri Jan 29 22:16:18 2016
 
 import numpy as np
 import matplotlib.pyplot as plt
-s=20
-y = np.matrix(np.zeros((20,20)))
-def time_step(a,b,n):
+import time as t
+def time_step(s,y,a,b,n):
     #y[0,0] = y_init
-    y[10,10] = 100
+    
     #y[10,10] = .0001
     h = (b-a)/n
     t_0=a
@@ -30,7 +29,14 @@ def contour_plot(n,field):
 
    
 def main():
-    scalar_field = time_step(0,10,1000)
+    s=20
+    y = np.matrix(np.zeros((s,s)))
+    
+    y[5,5] = 100
+    #for i in range(0,1000):
+    scalar_field = time_step(s,y,0,10,1000)
     scalar_field = np.array(scalar_field)
-    contour_plot(20,scalar_field)
+    contour_plot(s,scalar_field)
+        #t.sleep(1)
+        
 main()
