@@ -23,9 +23,10 @@ def time_step(s,y,a,b,n):
 def contour_plot(n,field):
     x_axis = np.linspace(0,n,n)
     y_axis = np.linspace(0,n,n)
-    
+    fig, ax = plt.subplots()
     X, Y = np.meshgrid(x_axis, y_axis, copy=False, indexing='xy')
-    plt.contourf(X, Y, field)    
+    z = plt.contourf(X, Y, field)  
+    fig.colorbar(z, ax=ax)
 
    
 def main():
