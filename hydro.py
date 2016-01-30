@@ -25,12 +25,12 @@ def contour_plot(n,field):
     y_axis = np.linspace(0,n,n)
     fig, ax = plt.subplots()
     X, Y = np.meshgrid(x_axis, y_axis, copy=False, indexing='xy')
-    z = plt.contourf(X, Y, field)  
+    z = plt.contourf(X, Y, field,c=np.log(void_fraction))  
     fig.colorbar(z, ax=ax)
 
    
 def main():
-    s=20
+    s=1
     x_length = 280
     y_length = 160
     y = np.matrix(np.zeros((y_length,x_length)))
