@@ -5,10 +5,10 @@ def time_step(violations,coor,x_length,y_length,y,a,b,n):
     T = 0.0019259230725
     s = 6*10**(-4)
     h = (b-a)/n
-    for i in range(0,n):
+    for k in range(0,n):
 #        t_i = t_0+i*h
         for i in range(0,len(violations)):
-            y[coor[i,1],coor[i,0]] = violations[i]
+            y[coor[i,1],coor[i,0]] = np.log(violations[i])
 
         for i in range(0,y_length-1):
             for j in range(0,x_length-1):
@@ -27,7 +27,7 @@ def contour_plot(x_length,y_length,field):
  
 def main():
     years = 15
-    n = 2000
+    n = 100
     x_length = 280
     y_length = 160
     y = np.matrix(np.zeros((y_length,x_length)))
